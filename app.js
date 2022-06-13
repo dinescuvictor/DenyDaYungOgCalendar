@@ -25,9 +25,7 @@ const createCalendar = () => {
     const nextDays = 7 - lastDayIndex - 1
 
     const dateHeading = document.querySelector('.date h1')
-    const dateText = document.querySelector('.date p')
     const monthDays = document.querySelector('.days')
-
 
     dateHeading.innerHTML = `${months[date.getMonth()]} ${date.getFullYear()}`
 
