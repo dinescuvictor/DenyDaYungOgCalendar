@@ -4,9 +4,6 @@
   box-sizing: border-box;
 }
 
-html {
-  font-size: 62.5%;
-}
 
 .container {
   width: 100%;
@@ -80,4 +77,12 @@ html {
 .today {
   background-color: #7e1629;
   color: #eeeeee;
+}
+
+.prev-date {
+  color: #797979;
+}
+
+.next-date {
+  color: #797979;
 }
