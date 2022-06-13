@@ -29,8 +29,7 @@ const createCalendar = () => {
     const monthDays = document.querySelector('.days')
 
 
-    dateHeading.innerHTML = months[date.getMonth()]
-    dateText.innerHTML = new Date().toDateString()
+    dateHeading.innerHTML = `${months[date.getMonth()]} ${date.getFullYear()}`
 
     let days = '';
 
@@ -41,7 +40,8 @@ const createCalendar = () => {
     for (let i = 1; i <= lastDay; i++) {
         if (
             i === new Date().getDate() &&
-            date.getMonth() === new Date().getMonth()
+            date.getMonth() === new Date().getMonth() &&
+            date.getFullYear() === new Date().getFullYear()
         ) {
             days += `<div class="today">${i}</div>`;
         } else {
