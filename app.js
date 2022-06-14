@@ -1,32 +1,33 @@
 const date = new Date();
+const currentDate = new Date().getDate()
+const currentMonth = new Date().getMonth()
+const currentYear = new Date().getFullYear()
+const months = [
+    'Jan.',
+    'Feb.',
+    'Mar.',
+    'Apr.',
+    'May.',
+    'Jun.',
+    'Jul.',
+    'Aug.',
+    'Sep.',
+    'Oct.',
+    'Nov.',
+    'Dec.',
+]
+const dateHeading = document.querySelector('.date h1')
+const monthDays = document.querySelector('.days')
 const leftArrow = document.querySelector('.pre')
 const rightArrow = document.querySelector('.next')
 
 const createCalendar = () => {
     date.setDate(1)
-    const months = [
-        'Jan.',
-        'Feb.',
-        'Mar.',
-        'Apr.',
-        'May.',
-        'Jun.',
-        'Jul.',
-        'Aug.',
-        'Sep.',
-        'Oct.',
-        'Nov.',
-        'Dec.',
-    ]
     const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
     const lastDayPreviousMonth = new Date(date.getFullYear(), date.getMonth(), 0).getDate()
     const firstDayIndex = date.getDay()
     const lastDayIndex = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay()
     const nextDays = 7 - lastDayIndex - 1
-
-    const dateHeading = document.querySelector('.date h1')
-    const monthDays = document.querySelector('.days')
-
     dateHeading.innerHTML = `${months[date.getMonth()]} ${date.getFullYear()}`
 
     let days = '';
@@ -37,9 +38,7 @@ const createCalendar = () => {
 
     for (let i = 1; i <= lastDay; i++) {
         if (
-            i === new Date().getDate() &&
-            date.getMonth() === new Date().getMonth() &&
-            date.getFullYear() === new Date().getFullYear()
+            i === currentDate && date.getMonth() === currentMonth && date.getFullYear() === currentYear
         ) {
             days += `<div class="today">${i}</div>`;
         } else {
